@@ -1,0 +1,190 @@
+{
+  "language": "en",
+  "version": "1.0.0",
+  "intents": [
+    {
+      "id": "cancelar",
+      "label": "Cancel subscription",
+      "priority": 90,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "keyword", "value": "cancel", "weight": 2.0 },
+        { "type": "pattern", "value": "(want|would like|need)\\s+(to\\s+)?(cancel|end|terminate)", "weight": 3.0 },
+        { "type": "pattern", "value": "cancel\\s+(my\\s+)?(plan|subscription|account|service|contract)", "weight": 3.0 },
+        { "type": "pattern", "value": "(quit|leave the service|end subscription|unsubscribe)", "weight": 3.0 },
+        { "type": "all", "value": ["cancel", "subscription"], "weight": 3.5 }
+      ],
+      "examples": [
+        "i want to cancel my plan",
+        "how do i cancel my subscription",
+        "i want to quit",
+        "cancel my plan"
+      ]
+    },
+    {
+      "id": "upgrade",
+      "label": "Upgrade plan",
+      "priority": 65,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(changed my mind|actually|never mind|decided against)", "weight": 6.0 },
+        { "type": "pattern", "value": "(switch to|upgrade|premium plan)", "weight": 3.0 },
+        { "type": "all", "value": ["plan", "bigger"], "weight": 3.5 }
+      ],
+      "examples": [
+        "i want to cancel but changed my mind, actually want a bigger plan",
+        "changed my mind want upgrade",
+        "want premium plan"
+      ]
+    },
+    {
+      "id": "comprar",
+      "label": "Buy plan",
+      "priority": 60,
+      "min_score": 2.0,
+      "rules": [
+        { "type": "keyword", "value": "subscribe", "weight": 2.0 },
+        { "type": "pattern", "value": "(subscribe|sign up|get a plan|new plan)", "weight": 3.0 }
+      ],
+      "examples": [
+        "i want to subscribe to the pro plan",
+        "want to buy a plan",
+        "how to subscribe"
+      ]
+    },
+    {
+      "id": "suporte",
+      "label": "Technical support",
+      "priority": 50,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "not\\s+(working|opening|loading|responding)", "weight": 2.5 },
+        { "type": "keyword", "value": "support", "weight": 2.0 },
+        { "type": "lemma", "value": "error", "weight": 1.0 }
+      ],
+      "examples": [
+        "the page is not loading and shows error",
+        "the app is not working",
+        "need support"
+      ]
+    },
+    {
+      "id": "pagamento",
+      "label": "Payment and refund",
+      "priority": 75,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(refund|chargeback|billing|boleto|pix|card|invoice|charged)", "weight": 2.5 },
+        { "type": "all", "value": ["twice", "charged"], "weight": 3.5 }
+      ],
+      "examples": [
+        "don't want to cancel, want to know about refund",
+        "was charged twice",
+        "want refund for invoice"
+      ]
+    },
+    {
+      "id": "acesso",
+      "label": "Access problem",
+      "priority": 70,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(can't (log in|access)|login|password|2fa|account locked)", "weight": 2.5 }
+      ],
+      "examples": [
+        "can't log into account",
+        "forgot my password",
+        "account locked"
+      ]
+    },
+    {
+      "id": "reclamacao",
+      "label": "Complaint",
+      "priority": 80,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(complaint|complain|worst service|not accept|demand)", "weight": 3.0 },
+        { "type": "keyword", "value": "complaint", "weight": 2.0 }
+      ],
+      "examples": [
+        "want to make a complaint",
+        "worst service ever",
+        "i don't accept this"
+      ]
+    },
+    {
+      "id": "downgrade",
+      "label": "Downgrade plan",
+      "priority": 55,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(smaller plan|downgrade|reduce plan|save money)", "weight": 3.0 }
+      ],
+      "examples": [
+        "want smaller plan",
+        "downgrade my plan",
+        "reduce my plan"
+      ]
+    },
+    {
+      "id": "alterar_dados",
+      "label": "Change account data",
+      "priority": 45,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(change|update|switch)\\s+(my\\s+)?(name|email|address|document)", "weight": 3.0 },
+        { "type": "all", "value": ["my", "email"], "weight": 3.5 }
+      ],
+      "examples": [
+        "want to change my email",
+        "update my address",
+        "change my name"
+      ]
+    },
+    {
+      "id": "duvida",
+      "label": "General question",
+      "priority": 40,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(how does it work|question|what is the difference|how do i)", "weight": 2.5 }
+      ],
+      "examples": [
+        "how does the plan work",
+        "have a question",
+        "what is the difference between plans"
+      ]
+    },
+    {
+      "id": "saudacao",
+      "label": "Greeting",
+      "priority": 20,
+      "min_score": 1.0,
+      "rules": [
+        { "type": "pattern", "value": "^(hi|hello|hey|good morning|good afternoon|good evening|what's up)", "weight": 1.5 },
+        { "type": "keyword", "value": "hello", "weight": 1.0 }
+      ],
+      "examples": [
+        "hi, how are you?",
+        "hello",
+        "good morning"
+      ]
+    }
+  ],
+  "negators": [
+    "not",
+    "never",
+    "no longer",
+    "stop",
+    "without",
+    "don't want to",
+    "not going to",
+    "not planning to"
+  ],
+  "negation_boundaries": [
+    "but",
+    "because",
+    "and",
+    "so"
+  ]
+}

@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: intent-engine
+Version: 0.1.0
+Summary: Motor determinístico de detecção de intenção baseado em regras (PT-BR/EN)
+Requires-Python: >=3.11
+Requires-Dist: spacy<4,>=3.8
+Requires-Dist: fastapi>=0.115
+Requires-Dist: uvicorn[standard]>=0.30
+Requires-Dist: typer>=0.12
+Requires-Dist: pydantic>=2.8
+Requires-Dist: python-multipart>=0.0.9
+Provides-Extra: pt
+Requires-Dist: pt-core-news-sm<3.9,>=3.8; extra == "pt"
+Provides-Extra: en
+Requires-Dist: en-core-web-sm<3.9,>=3.8; extra == "en"
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"
+Requires-Dist: httpx>=0.27; extra == "dev"

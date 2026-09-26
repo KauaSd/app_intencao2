@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intent Detection Engine</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Intent Detection Engine</h1>
+      <p class="subtitle">Deterministic rule-based intent classification (PT-BR/EN)</p>
+    </header>
+
+    <section class="controls">
+      <label for="message">Mensagem</label>
+      <textarea id="message" rows="3" placeholder="Digite uma mensagem..."></textarea>
+
+      <div class="control-row">
+        <label for="expected-intent">Intenção esperada (opcional)</label>
+        <select id="expected-intent">
+          <option value="">--</option>
+          <option value="cancelar">cancelar</option>
+          <option value="reclamacao">reclamacao</option>
+          <option value="pagamento">pagamento</option>
+          <option value="acesso">acesso</option>
+          <option value="upgrade">upgrade</option>
+          <option value="comprar">comprar</option>
+          <option value="downgrade">downgrade</option>
+          <option value="suporte">suporte</option>
+          <option value="alterar_dados">alterar_dados</option>
+          <option value="duvida">duvida</option>
+          <option value="saudacao">saudacao</option>
+          <option value="desconhecido">desconhecido</option>
+        </select>
+
+        <label for="samples">Exemplos rápidos</label>
+        <select id="samples">
+          <option value="">-- selecione --</option>
+          <option value="quero cancelar meu plano">quero cancelar meu plano</option>
+          <option value="como faço para cancelar a assinatura?">como faço para cancelar a assinatura?</option>
+          <option value="quero assinar o plano pro">quero assinar o plano pro</option>
+          <option value="a página não carrega e dá erro">a página não carrega e dá erro</option>
+          <option value="oi, tudo bem?">oi, tudo bem?</option>
+          <option value="quero sair!!!">quero sair!!!</option>
+          <option value="não quero cancelar, quero saber do reembolso">não quero cancelar, quero saber do reembolso</option>
+          <option value="o problema é que não consigo acessr">o problema é que não consigo acessr</option>
+          <option value="quero cancelar mas mudei de ideia, na verdade quero um plano maior">quero cancelar mas mudei de ideia, na verdade quero um plano maior</option>
+          <option value="quero cancelar e depois assinar o plano Pro">quero cancelar e depois assinar o plano Pro</option>
+        </select>
+
+        <label for="require-supported">Exigir idioma suportado</label>
+        <input type="checkbox" id="require-supported">
+
+        <div class="button-group">
+          <button id="detect" class="primary">Detectar</button>
+          <button id="clear">Limpar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" class="panel">
+      <h2>Resultado</h2>
+      <div id="result-content">Clique em "Detectar" para analisar uma mensagem</div>
+    </section>
+
+    <section id="explanation" class="panel">
+      <h2>Explicação</h2>
+      <div id="explanation-content"></div>
+    </section>
+
+    <section id="tokens" class="panel">
+      <h2>Tokens</h2>
+      <div id="tokens-content"></div>
+    </section>
+
+    <section id="trace" class="panel">
+      <h2>Trace de Regras</h2>
+      <div id="trace-content"></div>
+    </section>
+
+    <section id="language" class="panel">
+      <h2>Identificação de Idioma</h2>
+      <div id="language-content"></div>
+    </section>
+
+    <section id="chat" class="panel">
+      <h2>Chatbot</h2>
+      <div id="chat-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Digite uma mensagem para o chatbot...">
+        <button id="chat-send">Enviar</button>
+      </div>
+    </section>
+
+    <section id="log" class="panel">
+      <h2>Histórico de Execuções</h2>
+      <div id="log-content"></div>
+    </section>
+  </main>
+
+  <!-- Modules: api.js format.js intents.js chat.js app.js -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

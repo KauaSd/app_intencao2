@@ -1,0 +1,14 @@
+{
+  "cases": [
+    { "text": "quero cancelar meu plano", "expected": "cancelar" },
+    { "text": "como faço para cancelar a assinatura?", "expected": "cancelar" },
+    { "text": "quero assinar o plano pro", "expected": "comprar" },
+    { "text": "a página não carrega e dá erro", "expected": "suporte" },
+    { "text": "oi, tudo bem?", "expected": "saudacao" },
+    { "text": "quero sair!!!", "expected": "cancelar" },
+    { "text": "não quero cancelar, quero saber do reembolso", "expected": "pagamento" },
+    { "text": "o problema é que não consigo acessr", "expected": "desconhecido" },
+    { "text": "quero cancelar mas mudei de ideia, na verdade quero um plano maior", "expected": "upgrade" },
+    { "text": "quero cancelar e depois assinar o plano Pro", "expected": "cancelar", "also_expected": ["comprar"] }
+  ]
+}

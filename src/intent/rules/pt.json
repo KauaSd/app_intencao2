@@ -1,0 +1,192 @@
+{
+  "language": "pt",
+  "version": "1.0.0",
+  "intents": [
+    {
+      "id": "cancelar",
+      "label": "Cancelar assinatura",
+      "priority": 90,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "keyword", "value": "cancelar", "weight": 2.0 },
+        { "type": "pattern", "value": "(quero|queria|preciso|gostaria)\\s+(cancelar|encerrar|dispensar)", "weight": 3.0 },
+        { "type": "pattern", "value": "cancelar\\s+(meu\\s+)?(plano|assinatura|conta|servico|contrato)", "weight": 3.0 },
+        { "type": "pattern", "value": "(sair|deixar o servico|encerrar a assinatura|dar baixa)", "weight": 3.0 },
+        { "type": "all", "value": ["cancelar", "assinatura"], "weight": 3.5 }
+      ],
+      "examples": [
+        "quero cancelar meu plano",
+        "como faco para cancelar a assinatura",
+        "quero sair",
+        "cancelar meu plano"
+      ]
+    },
+    {
+      "id": "upgrade",
+      "label": "Upgrade de plano",
+      "priority": 65,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(mudei de ideia|na verdade|deixa pra tras|desisti)", "weight": 6.0 },
+        { "type": "pattern", "value": "(mudar para o plano|upgrade|plano premium)", "weight": 3.0 },
+        { "type": "all", "value": ["plano", "maior"], "weight": 3.5 }
+      ],
+      "examples": [
+        "quero cancelar mas mudei de ideia, na verdade quero um plano maior",
+        "mudei de ideia quero upgrade",
+        "quero plano premium"
+      ]
+    },
+    {
+      "id": "comprar",
+      "label": "Comprar plano",
+      "priority": 60,
+      "min_score": 2.0,
+      "rules": [
+        { "type": "keyword", "value": "assinar", "weight": 2.0 },
+        { "type": "pattern", "value": "(assinar|contratar|adquirir|quero um plano|novo plano)", "weight": 3.0 }
+      ],
+      "examples": [
+        "quero assinar o plano pro",
+        "quero comprar um plano",
+        "como assinar"
+      ]
+    },
+    {
+      "id": "suporte",
+      "label": "Suporte tecnico",
+      "priority": 50,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "nao\\s+(funciona|abre|carrega|responde)", "weight": 2.5 },
+        { "type": "keyword", "value": "suporte", "weight": 2.0 },
+        { "type": "lemma", "value": "erro", "weight": 1.0 }
+      ],
+      "examples": [
+        "a pagina nao carrega e da erro",
+        "o app nao funciona",
+        "preciso de suporte"
+      ]
+    },
+    {
+      "id": "pagamento",
+      "label": "Pagamento e reembolso",
+      "priority": 75,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(reembolso|estorno|cobranca|boleto|pix|cartao|fatura|cobrou)", "weight": 2.5 },
+        { "type": "all", "value": ["duas", "vezes"], "weight": 3.5 }
+      ],
+      "examples": [
+        "nao quero cancelar, quero saber do reembolso",
+        "fui cobrado duas vezes",
+        "quero estorno da fatura"
+      ]
+    },
+    {
+      "id": "acesso",
+      "label": "Problema de acesso",
+      "priority": 70,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(nao consigo (entrar|acessar)|login|senha|2fa|conta bloqueada)", "weight": 2.5 }
+      ],
+      "examples": [
+        "nao consigo entrar na conta",
+        "esqueci minha senha",
+        "conta bloqueada"
+      ]
+    },
+    {
+      "id": "reclamacao",
+      "label": "Reclamacao",
+      "priority": 80,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(reclamacao|reclamar|pior atendimento|nao aceito|exijo)", "weight": 3.0 },
+        { "type": "keyword", "value": "reclamacao", "weight": 2.0 }
+      ],
+      "examples": [
+        "quero fazer uma reclamacao",
+        "pior atendimento de todos",
+        "nao aceito isso"
+      ]
+    },
+    {
+      "id": "downgrade",
+      "label": "Downgrade de plano",
+      "priority": 55,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(plano menor|downgrade|reduzir o plano|economizar)", "weight": 3.0 }
+      ],
+      "examples": [
+        "quero plano menor",
+        "fazer downgrade do plano",
+        "reduzir meu plano"
+      ]
+    },
+    {
+      "id": "alterar_dados",
+      "label": "Alterar dados cadastrais",
+      "priority": 45,
+      "min_score": 3.0,
+      "rules": [
+        { "type": "pattern", "value": "(alterar|atualizar|trocar)\\s+(meu\\s+)?(nome|email|e-mail|endereco|documento)", "weight": 3.0 },
+        { "type": "all", "value": ["meu", "email"], "weight": 3.5 }
+      ],
+      "examples": [
+        "quero alterar meu email",
+        "atualizar meu endereco",
+        "trocar meu nome"
+      ]
+    },
+    {
+      "id": "duvida",
+      "label": "Duvida geral",
+      "priority": 40,
+      "min_score": 2.5,
+      "rules": [
+        { "type": "pattern", "value": "(como funciona|duvida|qual a diferenca|como faco para)", "weight": 2.5 }
+      ],
+      "examples": [
+        "como funciona o plano",
+        "tenho uma duvida",
+        "qual a diferenca entre planos"
+      ]
+    },
+    {
+      "id": "saudacao",
+      "label": "Saudacao",
+      "priority": 20,
+      "min_score": 1.0,
+      "rules": [
+        { "type": "pattern", "value": "^(ola|oi|bom dia|boa tarde|boa noite|e ai)", "weight": 1.5 },
+        { "type": "keyword", "value": "ola", "weight": 1.0 }
+      ],
+      "examples": [
+        "oi, tudo bem?",
+        "ola",
+        "bom dia"
+      ]
+    }
+  ],
+  "negators": [
+    "nao",
+    "nunca",
+    "jamais",
+    "sem",
+    "deixar de",
+    "sem querer",
+    "prefiro nao",
+    "nao pretendo"
+  ],
+  "negation_boundaries": [
+    "mas",
+    "porem",
+    "porque",
+    "pois",
+    "entao",
+    "e"
+  ]
+}
